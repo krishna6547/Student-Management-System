@@ -1,38 +1,9 @@
 <div align="center">
 
-<!-- Animated SVG Banner (GitHub-safe) -->
-<svg width="100%" height="160" viewBox="0 0 1200 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Student Management System">
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00C2FF">
-        <animate attributeName="offset" values="0;1;0" dur="8s" repeatCount="indefinite" />
-      </stop>
-      <stop offset="100%" stop-color="#8B5CF6">
-        <animate attributeName="offset" values="1;0;1" dur="8s" repeatCount="indefinite" />
-      </stop>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="160" fill="#0B1220" />
-  <g opacity="0.15">
-    <circle cx="100" cy="40" r="3" fill="#fff">
-      <animate attributeName="cy" values="40;34;40" dur="5s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="300" cy="80" r="2" fill="#fff">
-      <animate attributeName="cy" values="80;76;80" dur="6s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="900" cy="50" r="2.5" fill="#fff">
-      <animate attributeName="cy" values="50;44;50" dur="5.5s" repeatCount="indefinite" />
-    </circle>
-  </g>
-  <text x="50%" y="56%" text-anchor="middle" fill="url(#grad)" font-size="36" font-weight="700" font-family="Segoe UI, Inter, Roboto, Arial">
-    Student Management System
-  </text>
-  <text x="50%" y="82%" text-anchor="middle" fill="#B6C2E0" font-size="16" font-weight="500" font-family="Segoe UI, Inter, Roboto, Arial">
-    MERN • Admin • Teacher • Student • Secure • Responsive
-  </text>
-  <rect x="0" y="158" width="1200" height="2" fill="url(#grad)" />
-  Sorry, your browser does not support inline SVG.
-  </svg>
+<!-- GitHub-friendly animated banner -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C2FF,100:8B5CF6&height=180&section=header&text=Student%20Management%20System&fontColor=ffffff&fontSize=36&fontAlignY=35" alt="Banner" />
+
+<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=22&duration=2800&pause=900&multiline=true&center=true&vCenter=true&width=700&height=60&lines=MERN+%E2%80%A2+Admin+%E2%80%A2+Teacher+%E2%80%A2+Student+%E2%80%A2+Secure+%E2%80%A2+Responsive" alt="Typing" />
 
 <br/>
 

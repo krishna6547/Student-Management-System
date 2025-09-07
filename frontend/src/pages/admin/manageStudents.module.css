@@ -1,0 +1,867 @@
+/* manageStudents.module.css - Student management styling */
+
+.manageStudentsContainer {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 50%, #3B82F6 100%);
+    position: relative;
+    overflow-x: hidden;
+}
+
+.manageStudentsContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.studentsContent {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.studentsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.headerLeft h1.pageTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+    line-height: 1.1;
+}
+
+.pageSubtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.addStudentBtn {
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    color: #8B5CF6;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.addStudentBtn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.addStudentBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.addStudentBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.filterRow {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.filterLabel {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.studentFilter {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    color: #1E293B;
+    font-size: 1rem;
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.studentFilter:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.studentFilter option {
+    background: #ffffff;
+    color: #1E293B;
+}
+
+.studentsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 30px;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.studentCard {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px 25px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    animation: fadeInUp 1s ease-out;
+    animation-fill-mode: both;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.studentCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8B5CF6, #6366F1, #3B82F6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.studentCard:hover::before {
+    transform: scaleX(1);
+}
+
+.studentCard:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(139, 92, 246, 0.2);
+    background: rgba(255, 255, 255, 1);
+}
+
+.cardActions {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3;
+}
+
+.studentCard:hover .cardActions {
+    opacity: 1;
+}
+
+.removeBtn {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.removeBtn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.removeBtn svg {
+    width: 16px;
+    height: 16px;
+    color: #ef4444;
+}
+
+.studentIcon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #8B5CF6, #6366F1);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.studentIcon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.studentCard:hover .studentIcon {
+    transform: scale(1.1) rotate(-5deg);
+    background: linear-gradient(135deg, #7C3AED, #5B21B6);
+}
+
+.studentName {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1E293B;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.studentCard:hover .studentName {
+    color: #8B5CF6;
+}
+
+.studentDetails {
+    margin-bottom: 15px;
+}
+
+.detailItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.detailItem:last-child {
+    border-bottom: none;
+}
+
+.detailLabel {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748B;
+    min-width: 60px;
+}
+
+.detailValue {
+    font-size: 0.9rem;
+    color: #1E293B;
+    font-weight: 500;
+    text-align: right;
+    word-break: break-word;
+    max-width: 200px;
+}
+
+.studentClasses {
+    margin-bottom: 15px;
+}
+
+.classesLabel {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748B;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.classesList {
+    font-size: 0.85rem;
+    color: #64748B;
+    line-height: 1.4;
+    min-height: 20px;
+}
+
+.studentStats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.classCount {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(139, 92, 246, 0.1);
+    color: #7C3AED;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.joinDate {
+    font-size: 0.8rem;
+    color: #94A3B8;
+    font-weight: 500;
+}
+
+.emptyState {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.emptyState svg {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    opacity: 0.6;
+}
+
+.emptyState h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.emptyState p {
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    color: rgba(255, 255, 255, 0.9);
+    animation: fadeInUp 1s ease-out;
+}
+
+.loadingContainer .spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top: 4px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.loadingContainer p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.errorMessage {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    color: #dc2626;
+    font-weight: 600;
+    position: relative;
+    animation: slideInDown 0.4s ease-out;
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.1);
+}
+
+.errorMessage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #dc2626, #ef4444);
+    border-radius: 15px 15px 0 0;
+}
+
+.errorMessage svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    color: #dc2626;
+}
+
+.errorClose {
+    background: rgba(239, 68, 68, 0.1);
+    border: none;
+    color: #dc2626;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.errorClose:hover {
+    background: rgba(239, 68, 68, 0.2);
+    transform: scale(1.1);
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modalContent {
+    background: white;
+    border-radius: 20px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease-out;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 30px 20px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.modalHeader h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1E293B;
+    margin: 0;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    color: #64748B;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+    background: #F1F5F9;
+    color: #1E293B;
+}
+
+.closeBtn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.formGroup {
+    padding: 30px;
+}
+
+.formGroup label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="email"],
+.formGroup input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #F9FAFB;
+    box-sizing: border-box;
+}
+
+.formGroup input[type="text"]:focus,
+.formGroup input[type="email"]:focus,
+.formGroup input[type="password"]:focus {
+    outline: none;
+    border-color: #8B5CF6;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.checkboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    background: #F9FAFB;
+}
+
+.checkboxItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkboxItem input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #8B5CF6;
+    cursor: pointer;
+}
+
+.checkboxItem label {
+    font-size: 0.95rem;
+    color: #374151;
+    cursor: pointer;
+    margin: 0;
+}
+
+.modalActions {
+    display: flex;
+    gap: 15px;
+    padding: 20px 30px 30px;
+}
+
+.cancelBtn,
+.submitBtn {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cancelBtn {
+    background: #F1F5F9;
+    color: #64748B;
+    border: none;
+}
+
+.cancelBtn:hover {
+    background: #E2E8F0;
+}
+
+.submitBtn {
+    background: linear-gradient(135deg, #8B5CF6, #6366F1);
+    color: white;
+    border: none;
+}
+
+.submitBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.modalError {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 10px;
+    padding: 15px 18px;
+    margin: 0 30px 20px;
+    color: #dc2626;
+    font-size: 0.95rem;
+    font-weight: 600;
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+}
+
+.modalError::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #dc2626;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .studentsHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .headerLeft h1.pageTitle {
+        font-size: 2.2rem;
+    }
+
+    .studentsGrid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .addStudentBtn {
+        align-self: stretch;
+        justify-content: center;
+    }
+
+    .cardActions {
+        opacity: 1;
+    }
+
+    .removeBtn {
+        padding: 10px;
+    }
+
+    .removeBtn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .errorMessage {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 18px;
+    }
+
+    .errorClose {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        margin-left: 0;
+    }
+
+    .loadingContainer {
+        min-height: 300px;
+        padding: 20px;
+    }
+
+    .loadingContainer .spinner {
+        width: 40px;
+        height: 40px;
+        border-width: 3px;
+    }
+
+    .filterRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .studentFilter {
+        width: 100%;
+    }
+
+    .studentDetails {
+        margin-bottom: 12px;
+    }
+
+    .detailItem {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .detailValue {
+        text-align: left;
+        max-width: none;
+    }
+
+    .studentStats {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .studentsContent {
+        padding: 30px 15px;
+    }
+
+    .headerLeft h1.pageTitle {
+        font-size: 1.8rem;
+    }
+
+    .studentCard {
+        padding: 25px 20px;
+    }
+
+    .modalContent {
+        width: 95%;
+    }
+
+    .modalHeader,
+    .formGroup,
+    .modalActions {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .modalError {
+        margin: 0 20px 20px;
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+
+    .errorMessage {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .studentName {
+        font-size: 1.2rem;
+    }
+
+    .detailLabel,
+    .detailValue {
+        font-size: 0.85rem;
+    }
+
+    .classesList {
+        font-size: 0.8rem;
+    }
+} 

@@ -1,0 +1,445 @@
+.container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding-bottom: 2rem;
+    color: #333;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    color: white;
+}
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.loadingSpinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid #ef4444;
+    color: white;
+    padding: 1.25rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 8px 32px rgba(239, 68, 68, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.studentInfo {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+    color: #2d3748;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.studentInfo h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+}
+
+.studentInfo p {
+    color: #718096;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.overviewSection {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+    color: #2d3748;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.overviewSection h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #2d3748;
+}
+
+.overviewGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.overviewCard {
+    text-align: center;
+    padding: 2rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.overviewCard:hover {
+    transform: translateY(-4px);
+    background: white;
+    border-color: #d1d5db;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.overviewCard h4 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.overviewNumber {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3b82f6;
+    display: block;
+}
+
+.filtersSection {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+    color: #2d3748;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.filterGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.filterGroup label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #2d3748;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.select {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background: white;
+    color: #374151;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    max-width: 300px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: #f8fafc;
+}
+
+.select option {
+    background: white;
+    color: #374151;
+    padding: 0.5rem;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #2d3748;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.emptyIcon {
+    margin-bottom: 1rem;
+    color: #718096;
+}
+
+.emptyState h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.emptyState p {
+    color: #718096;
+    font-size: 1rem;
+}
+
+.gradesContainer {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #2d3748;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.gradesContainer h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #2d3748;
+}
+
+.gradesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.gradeCard {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.gradeCard:hover {
+    transform: translateY(-4px);
+    background: white;
+    border-color: #d1d5db;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.gradeHeader {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.gradeHeader h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+}
+
+.className {
+    font-size: 0.875rem;
+    color: #718096;
+    font-weight: 500;
+}
+
+.gradeDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.gradeInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gradeScore {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.gradeLetter {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #2d3748;
+}
+
+.gradePercentage {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #718096;
+}
+
+.gradeStatus {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.statusTag {
+    padding: 0.5rem 1rem;
+    border-radius: 16px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Status colors */
+.statusTag.passing {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border-color: #10b981;
+}
+
+.statusTag.warning {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+    border-color: #f59e0b;
+}
+
+.statusTag.failing {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+.gradeMeta {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.lastUpdated {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Grade letter colors */
+.gradeLetter.a { color: #10b981; }
+.gradeLetter.b { color: #3b82f6; }
+.gradeLetter.c { color: #f59e0b; }
+.gradeLetter.d { color: #ef4444; }
+.gradeLetter.f { color: #dc2626; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        padding: 1rem;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+    
+    .overviewGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .gradesGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .gradeCard {
+        padding: 1.5rem;
+    }
+    
+    .gradeInfo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .gradeScore {
+        gap: 0.75rem;
+    }
+    
+    .gradeLetter {
+        font-size: 2rem;
+    }
+    
+    .gradePercentage {
+        font-size: 1rem;
+    }
+    
+    .gradeStatus {
+        justify-content: flex-start;
+    }
+    
+    .overviewSection,
+    .filtersSection,
+    .gradesContainer,
+    .studentInfo {
+        padding: 1.5rem;
+    }
+    
+    .overviewCard {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .overviewGrid {
+        grid-template-columns: 1fr;
+    }
+}

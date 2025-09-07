@@ -1,0 +1,127 @@
+.aboutBg {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 50%, #3B82F6 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.aboutBg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.aboutCard {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 120px 20px 80px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    margin-top: 100px;
+    margin-bottom: 100px;
+    animation: fadeInUp 1s ease-out;
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.aboutCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8B5CF6, #6366F1, #3B82F6);
+}
+
+.aboutCard h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1E293B;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.aboutCard h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #8B5CF6, #6366F1);
+    border-radius: 2px;
+}
+
+.aboutCard p {
+    font-size: 1.2rem;
+    color: #64748B;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.aboutCard p:last-child {
+    margin-bottom: 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .aboutCard {
+        margin: 80px 20px;
+        padding: 80px 30px 60px;
+    }
+
+    .aboutCard h1 {
+        font-size: 2.5rem;
+    }
+
+    .aboutCard p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutCard {
+        margin: 60px 15px;
+        padding: 60px 20px 40px;
+    }
+
+    .aboutCard h1 {
+        font-size: 2rem;
+    }
+
+    .aboutCard p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}

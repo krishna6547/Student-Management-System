@@ -1,0 +1,487 @@
+.container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.header p {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.error {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid #fecaca;
+    text-align: center;
+}
+
+.classSelector {
+    padding: 30px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.classSelector label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.select {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.3s ease;
+}
+
+.select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.scheduleSection {
+    padding: 30px;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sectionHeader h2 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 1.8rem;
+}
+
+.addScheduleBtn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.addScheduleBtn:hover {
+    transform: translateY(-2px);
+}
+
+.emptyState {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b7280;
+}
+
+.emptyIcon {
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.emptyState h3 {
+    margin: 0 0 10px 0;
+    color: #374151;
+    font-size: 1.5rem;
+}
+
+.emptyState p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.scheduleContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.daySection {
+    background: #f9fafb;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dayHeader {
+    background: white;
+    padding: 20px 25px;
+    border-left: 5px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dayHeader h3 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.classCount {
+    background: #e5e7eb;
+    color: #6b7280;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.classesList {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.classCard {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.classCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.classHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.classHeader h4 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.className {
+    background: #f3f4f6;
+    color: #6b7280;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.classDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.timeSlot,
+.roomSlot {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.timeSlot svg,
+.roomSlot svg {
+    color: #9ca3af;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.editBtn,
+.deleteBtn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-weight: 500;
+}
+
+.editBtn {
+    background: #3b82f6;
+    color: white;
+}
+
+.editBtn:hover {
+    background: #2563eb;
+}
+
+.deleteBtn {
+    background: #ef4444;
+    color: white;
+}
+
+.deleteBtn:hover {
+    background: #dc2626;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: white;
+    border-radius: 15px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.modalHeader {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px 15px 0 0;
+}
+
+.modalHeader h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.closeBtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.scheduleForm {
+    padding: 30px;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.formGroup input,
+.formGroup select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.timeGroup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.formActions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.submitBtn,
+.cancelBtn {
+    flex: 1;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.submitBtn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.submitBtn:hover {
+    transform: translateY(-2px);
+}
+
+.cancelBtn {
+    background: #f3f4f6;
+    color: #374151;
+    border: 2px solid #e5e7eb;
+}
+
+.cancelBtn:hover {
+    background: #e5e7eb;
+}
+
+/* Loading Styles */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.loadingSpinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .header {
+        padding: 30px 20px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .scheduleSection {
+        padding: 20px;
+    }
+    
+    .sectionHeader {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .addScheduleBtn {
+        width: 100%;
+    }
+    
+    .dayHeader {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .classesList {
+        padding: 15px;
+    }
+    
+    .classCard {
+        padding: 15px;
+    }
+    
+    .classHeader {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+    
+    .timeGroup {
+        grid-template-columns: 1fr;
+    }
+    
+    .modalContent {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .formActions {
+        flex-direction: column;
+    }
+}

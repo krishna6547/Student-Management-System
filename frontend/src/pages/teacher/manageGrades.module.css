@@ -1,0 +1,396 @@
+.container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.header p {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.error {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid #fecaca;
+    text-align: center;
+}
+
+.classSelector {
+    padding: 30px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.classSelector label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.select {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.3s ease;
+}
+
+.select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.gradesSection {
+    padding: 30px;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sectionHeader h2 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 1.8rem;
+}
+
+.addGradeBtn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.addGradeBtn:hover {
+    transform: translateY(-2px);
+}
+
+.gradesTable {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+.gradesTable table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.gradesTable th {
+    background: #f9fafb;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.gradesTable td {
+    padding: 15px;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: middle;
+}
+
+.studentName {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.gradeCell {
+    text-align: center;
+}
+
+.gradeDisplay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.gradeLetter {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.gradePercentage {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.noGrade {
+    color: #9ca3af;
+    font-style: italic;
+}
+
+.actions {
+    text-align: center;
+}
+
+.editBtn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.editBtn:hover {
+    background: #2563eb;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: white;
+    border-radius: 15px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.modalHeader {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px 15px 0 0;
+}
+
+.modalHeader h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.closeBtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.gradeForm {
+    padding: 30px;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.studentDisplay {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #f3f4f6;
+    border-radius: 6px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.formActions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.submitBtn,
+.cancelBtn {
+    flex: 1;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.submitBtn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.submitBtn:hover {
+    transform: translateY(-2px);
+}
+
+.cancelBtn {
+    background: #f3f4f6;
+    color: #374151;
+    border: 2px solid #e5e7eb;
+}
+
+.cancelBtn:hover {
+    background: #e5e7eb;
+}
+
+/* Loading Styles */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.loadingSpinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .header {
+        padding: 30px 20px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .gradesSection {
+        padding: 20px;
+    }
+    
+    .sectionHeader {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .addGradeBtn {
+        width: 100%;
+    }
+    
+    .gradesTable {
+        font-size: 0.875rem;
+    }
+    
+    .gradesTable th,
+    .gradesTable td {
+        padding: 10px 8px;
+    }
+    
+    .modalContent {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .formActions {
+        flex-direction: column;
+    }
+}
